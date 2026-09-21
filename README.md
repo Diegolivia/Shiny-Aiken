@@ -1,69 +1,65 @@
-=======
-
 # Shiny Aiken
 
-*Shiny Aiken* es una aplicación interactiva desarrollada en R mediante el entorno *Shiny* (Chang et al., 2024). Permite a los usuarios realizar análisis psicométricos no solo para fines de investigación, sino también para enseñar conceptos y facilitar el análisis rutinario de pruebas educativas y psicológicas de manera sencilla y accesible (Martinková & Drabinová, 2018).
+*Shiny Aiken* is an interactive application developed in R using the *Shiny* framework (Chang et al., 2024). It allows users to perform psychometric analyses not only for research purposes but also to teach concepts and facilitate the routine analysis of educational and psychological tests in a simple and accessible way (Martinková & Drabinová, 2018).
 
-Esta herramienta se centra en la cuantificación de la validez de contenido mediante la **V de Aiken**, incluyendo el cálculo de intervalos de confianza asimétricos (método Score propuesto por Merino & Livia, 2009), la evaluación de la homogeneidad entre jueces y la comparación estadística entre dos grupos de evaluadores.
+This tool focuses on quantifying content validity using **Aiken's V**, including the calculation of asymmetric confidence intervals (Score method proposed by Merino & Livia, 2009), the evaluation of homogeneity among judges, and the statistical comparison between two groups of raters.
 
-## 🌟 Características Principales
+## 🌟 Main Features
 
-* **Cálculo de la V de Aiken:** Resultados detallados por cada ítem y una V de Aiken total para el instrumento.
-* **Intervalos de Confianza (Score):** Cálculo preciso de los límites inferior (LI) y superior (LS) para la toma de decisiones.
-* **Homogeneidad de Jueces:** Cálculo de la correlación promedio (Coeficiente H) entre los evaluadores.
-* **Comparación de Grupos:** Herramienta integrada para comparar estadísticamente la V de Aiken entre dos grupos distintos de jueces (ej. clínicos vs. académicos).
-* **Visualización Gráfica:** Gráficos generados de forma automática mostrando las estimaciones y sus respectivos intervalos de confianza frente a un punto de corte definido por el usuario.
-* **Flexibilidad de Datos:** Capacidad para leer archivos Excel (`.xlsx`, `.xls`) y `.csv` en dos tipos de formatos u orientaciones distintas.
+* **Aiken's V Calculation:** Detailed results for each item and a total Aiken's V for the instrument.
+* **Confidence Intervals (Score):** Precise calculation of the lower (LL) and upper (UL) limits for decision making.
+* **Homogeneity of Judges:** Calculation of the average correlation (H Coefficient) among raters.
+* **Group Comparison:** Built-in tool to statistically compare Aiken's V between two distinct groups of judges (e.g., clinical vs. academic).
+* **Graphical Visualization:** Automatically generated plots displaying the estimates and their respective confidence intervals against a user-defined cutoff point.
+* **Data Flexibility:** Ability to read Excel (`.xlsx`, `.xls`) and `.csv` files in two different formats or orientations.
 
-## 🚀 Cómo ejecutar la aplicación
+## 🚀 How to run the application
 
-No es necesario descargar, clonar el repositorio ni instalar paquetes adicionales en tu computadora de forma manual si cuentas con R.
+You do not need to download, clone the repository, or manually install the app on your computer if you already have R.
 
-### 1. Requisitos previos
+### 1. Prerequisites
 
-Asegúrate de tener instalados los siguientes paquetes en tu entorno de R. Si no los tienes, puedes instalarlos ejecutando:
+Make sure you have the following packages installed in your R environment. If you don't have them, you can install them by running:
 
 ```R
 install.packages(c("shiny", "readxl", "dplyr", "DT", "ggplot2", "tidyr"))
 
 ```
 
-### 2. Ejecutar directamente desde GitHub
+### 2. Run directly from GitHub
 
-Una vez instalados los paquetes requeridos, puedes iniciar la aplicación ejecutando la siguiente línea de código en tu consola de R o RStudio:
+Once the required packages are installed, you can start the application by running the following line of code in your R or RStudio console:
 
 ```R
 shiny::runGitHub("Shiny-Aiken", "Diegolivia")
-
 ```
 
-La aplicación se descargará de manera temporal en segundo plano y se abrirá inmediatamente en tu navegador web o visor de RStudio.
+The application will be temporarily downloaded in the background and will open immediately in your web browser or RStudio viewer.
 
-## 📊 Formato de Datos
+## 📊 Data Format
 
-La aplicación es capaz de detectar automáticamente la orientación de tu base de datos o te permite configurarla manualmente. Soporta los dos formatos de entrada más comunes:
+The application can automatically detect the orientation of your database or allows you to configure it manually. It supports the two most common input formats:
 
-**Formato A (Ítems en filas, Jueces en columnas):**
-Se requieren columnas que inicien con la palabra "Expert" para que la app las detecte automáticamente como jueces.
+**Format A (Items in rows, Judges in columns):**
+Columns starting with the word "Expert" are required for the app to automatically detect them as judges.
 
 | Item | Expert1 | Expert2 | Expert3 | ... |
 | --- | --- | --- | --- | --- |
 | Item 1 | 4 | 3 | 4 | ... |
 | Item 2 | 4 | 4 | 4 | ... |
 
-**Formato B (Jueces en filas, Ítems en columnas):**
-Se requieren columnas que inicien con la palabra "Item" para detectar las calificaciones. Puedes incluir una columna "Grupo" para posteriores comparaciones.
+**Format B (Judges in rows, Items in columns):**
+Columns starting with the word "Item" are required to detect the ratings. You can include a "Group" column for later comparisons.
 
-| Juez | Grupo | Item1 | Item2 | Item3 | ... |
+| Judge | Group | Item1 | Item2 | Item3 | ... |
 | --- | --- | --- | --- | --- | --- |
-| Juez01 | Clínicos | 4 | 3 | 4 | ... |
-| Juez02 | Académicos | 3 | 4 | 4 | ... |
+| Judge01 | Clinical | 4 | 3 | 4 | ... |
+| Judge02 | Academic | 3 | 4 | 4 | ... |
 
-*(Nota: La aplicación incluye botones de demostración para cargar estos datos de ejemplo y explorar las funciones al instante).*
+*(Note: The application includes demo buttons to load these example datasets and explore the features instantly).*
 
-## 📚 Referencias
+## 📚 References
 
 * Chang, W., et al. (2024). *shiny: Web Application Framework for R*.
 * Martinková, P., & Drabinová, A. (2018). ShinyItemAnalysis for teaching psychometrics and to enforce routine analysis of educational tests. *The R Journal, 10*(2), 503–515.
 * Merino, C., & Livia, J. (2009). Intervalos de confianza asimétricos para el índice la validez de contenido: Un programa Visual Basic para la V de Aiken. *Anales de Psicología, 25*(1), 169-171.
-========
